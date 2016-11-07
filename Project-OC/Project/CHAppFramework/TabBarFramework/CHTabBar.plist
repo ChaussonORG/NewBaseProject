@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>color</key>
+	<string>0Xffffff</string>
+	<key>height</key>
+	<integer>49</integer>
+	<key>selectIndex</key>
+	<integer>4</integer>
+	<key>tabBarItems</key>
+	<array>
+		<dict>
+			<key>UIViewControllName</key>
+			<string>FirstViewController</string>
+			<key>tabbarTitle</key>
+			<string>首页</string>
+			<key>unselectedIconName</key>
+			<string>pagehome</string>
+			<key>selectedIconName</key>
+			<string>pagehomeSele</string>
+		</dict>
+		<dict>
+			<key>tabbarTitle</key>
+			<string>订单</string>
+			<key>UIViewControllName</key>
+			<string>SecondViewController</string>
+			<key>unselectedIconName</key>
+			<string>order</string>
+			<key>selectedIconName</key>
+			<string>orderSele</string>
+		</dict>
+		<dict>
+			<key>tabbarTitle</key>
+			<string>我的玩具</string>
+			<key>UIViewControllName</key>
+			<string>ThirdViewController</string>
+			<key>unselectedIconName</key>
+			<string>myToy</string>
+			<key>selectedIconName</key>
+			<string>myToySele</string>
+		</dict>
+		<dict>
+			<key>tabbarTitle</key>
+			<string>购物车</string>
+			<key>UIViewControllName</key>
+			<string>FourthViewController</string>
+			<key>unselectedIconName</key>
+			<string>car</string>
+			<key>selectedIconName</key>
+			<string>carSele</string>
+		</dict>
+		<dict>
+			<key>tabbarTitle</key>
+			<string>我</string>
+			<key>UIViewControllName</key>
+			<string>FifthViewController</string>
+			<key>unselectedIconName</key>
+			<string>mine</string>
+			<key>selectedIconName</key>
+			<string>mineSele</string>
+		</dict>
+	</array>
+</dict>
+</plist>

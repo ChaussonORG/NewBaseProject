@@ -3,6 +3,9 @@ platform:ios,'8.0'
 target 'NewProject' do
   use_frameworks!
 
+pod 'RxSwift'
+pod 'RxCocoa'
+pod 'Moya'
 pod 'SwiftyJSON' 
 pod 'Alamofire' 
 pod 'CHProgressHUD'

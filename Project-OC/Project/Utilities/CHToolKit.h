@@ -26,4 +26,6 @@
 + (BOOL)hasUDIDInKeyChain;
 
 + (BOOL)removeUDIDFromKeyChain;
+
++ (void)swizzleSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL; // 方法交换
 @end

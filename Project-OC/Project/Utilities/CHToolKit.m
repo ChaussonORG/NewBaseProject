@@ -7,7 +7,7 @@
 //
 
 #import "CHToolKit.h"
-
+#import <objc/runtime.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <Security/Security.h>
 #import <UIKit/UIKit.h>
@@ -26,6 +26,7 @@ static bool loadLaunchFlag;
 + (BOOL)isFirstLaunch{
     return loadLaunchFlag;
 }
+
 + (NSString*)UDID
 {
     NSString *udid = [CHToolKit getUDIDFromKeyChain];
@@ -359,7 +360,33 @@ static bool loadLaunchFlag;
     
     return NO;
 }
++ (void)swizzleSEL:(SEL)originalSEL withSEL:(SEL)swizzledSEL
+{
+    Class class = [self class];
+    
+    Method originalMethod = class_getInstanceMethod(class, originalSEL);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSEL);
+    
+    BOOL didAddMethod =
+    class_addMethod(class,
+                    originalSEL,
+                    method_getImplementation(swizzledMethod),
+                    method_getTypeEncoding(swizzledMethod));
+    
+    if (didAddMethod) {
+        class_replaceMethod(class,
+                            swizzledSEL,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    }
+    else
+    {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+    
+}
 #pragma mark Private
+
 + (BOOL)launchFlag{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *launchKey = [CHToolKit md5FromString:[NSString stringWithFormat:@"%@",[CHToolKit description]]];
